@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TP - Search Number</title>
+</head>
+<body>
+<style>
+    .btn-start {
+        display: inline-block;
+        background-color: #0049ff;
+        border-radius: 10px;
+        border: 4px double #cccccc;
+        color: #eeeeee;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 200px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .btn-win {
+        display: inline-block;
+        background-color: #69fc06;
+        border-radius: 10px;
+        border: 4px double #cccccc;
+        color: #eeeeee;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 200px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .btn-find {
+        display: inline-block;
+        background-color: #fc9106;
+        border-radius: 10px;
+        border: 4px double #cccccc;
+        color: #eeeeee;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 200px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+</style>
+<div>
+    <button id="btn-search" class="btn-start">
+        Commencer le jeu
+    </button>
+
+    <script>
+        document.getElementById("btn-search").addEventListener("click", displayPrompt);
+
+        function displayPrompt() {
+            let randomNumber = Math.floor(Math.random() * 10)
+            let resultNumber = prompt('Entrez le nombre à trouver :')
+            function  ChangeColorButton() {
+                const element = document.getElementById("btn-search");
+                element.className = "btn-start";
+                if (resultNumber === randomNumber) {
+                    document.getElementById("btn-search").addEventListener("click", displayWin);
+                    function displayWin() {
+                        const btnWin = document.getElementById('btn-search');
+                        btnWin.textContent='Vous avez trouver le bon nombre !';
+                        const element = document.getElementById("btn-search");
+                        element.className = "btn-win";
+                    }
+                }
+                if (resultNumber < randomNumber) {
+                    document.getElementById("btn-search").addEventListener("click", displayWin);
+                    function displayfOUND() {
+                        const btnWin = document.getElementById('btn-search');
+                        btnWin.textContent='Votre chiffre/nombre est trop petit';
+                        const element = document.getElementById("btn-search");
+                        element.className = "btn-find";
+                    }
+                }
+                if (resultNumber > randomNumber) {
+                    document.getElementById("btn-search").addEventListener("click", displayWin);
+                    function displayFind() {
+                        const btnWin = document.getElementById('btn-search');
+                        btnWin.textContent='Votre chiffre/nombre est trop grand';
+                        const element = document.getElementById("btn-search");
+                        element.className = "btn-find";
+                    }
+                }
+            }
+        }
+    </script>
+</div>
+
+</body>
+</html>
