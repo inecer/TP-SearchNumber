@@ -1,28 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>TP - Search Number</title>
+    <meta charset="utf-8">
+    <title>Jeu de devinette de nombre</title>
+    <link rel="stylesheet" href="game.css">
 </head>
 <body>
-<button id="startGame">Start</button>
-<script>
-    const startButton = document.getElementById('startGame');
-
-    startButton.addEventListener('click', () => {
-        let correctNumber = Math.floor(Math.random() * 10); // génère un nombre au hasard entre 0 et 9
-
-            let guess = prompt('Entrez un nombre entre 0 et 9 :');
-            guess = parseInt(guess);
-
-            if (guess === correctNumber) {
-                alert('Vous avez trouvé le bon nombre !');
-                startButton.style.backgroundColor = 'green';
-            } else {
-                alert('Ce n\'est pas le bon nombre, essayez à nouveau !');
-                startButton.style.backgroundColor = 'red';
-            }
-    });
-</script>
+<button type="submit" id="guess-button">Trouve le bon nombre 🤔</button>
+<script src="game.js"></script>
 </body>
 </html>
